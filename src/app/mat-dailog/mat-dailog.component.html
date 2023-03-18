@@ -1,0 +1,36 @@
+<!-- {{data | json}} -->
+<h2 mat-dialog-title>Here are the details about {{data.myData.description}}</h2>
+<div mat-dialog-content>
+  <!-- <p> Data: {{ data.myData }} </p> -->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar >
+      <img class="avatar" src='{{data.myData.owner.avatar_url}}' alt="avatar"></div>
+      <mat-card-title>{{data.myData.owner.login}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Repo : <a href="{{data.myData.clone_url}}" target="_blank"> {{data.myData.clone_url}} </a></p>
+        <p>Commit: <a href="{{data.myData.contributors_url}}" target="_blank"> {{data.myData.contributors_url}} </a></p>
+        <p>Open Issues : {{data.myData.open_issues}}</p>
+    </mat-card-content>
+<br>
+<ng-container *ngIf = "data.myData.topics.length > 0; then hasTopics else doesNotHaveTopics"></ng-container>
+<mat-card-actions>
+<ng-template #hasTopics>
+    <p>Topics Associated with the Repo</p>
+        <mat-chip-set
+     class="example-chip">
+  <mat-chip
+    class="example-box"
+    *ngFor="let topic of data.myData.topics">
+    {{topic}}
+  </mat-chip>
+    </mat-chip-set>
+</ng-template>
+<ng-template #doesNotHaveTopics>
+    <p>No associated Topics</p>
+</ng-template>
+</mat-card-actions>
+  </mat-card>
+  
+</div>

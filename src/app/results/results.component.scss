@@ -1,0 +1,15 @@
+.table-data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+}
+mat-table {
+    display: table;
+}
+
+.more-details {
+    color: blue;
+    cursor: pointer;
+}

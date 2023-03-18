@@ -1,0 +1,12 @@
+<form (ngSubmit)="search()" class="form-valualation" >
+    <mat-form-field  style="width:60vw"> 
+      <input  style="width:100%" matInput [(ngModel)]="query" name="query" placeholder="Search for a repository">
+    </mat-form-field>
+    <button mat-raised-button color="primary">Search</button>
+  </form>
+  <div *ngIf="errorPart">
+    <app-results ></app-results>
+  </div>
+<div *ngIf="!errorPart">
+  <p>No results found!</p>
+</div>
